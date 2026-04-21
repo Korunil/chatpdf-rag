@@ -1,6 +1,10 @@
 # 📄 ChatPDF + Internet RAG Assistant
 
+> 🤖 Hybrid RAG system that intelligently switches between document knowledge and live web data.
+
 An intelligent document assistant that allows users to query multiple PDFs and optionally enhance answers using real-time internet search.
+
+---
 
 ## 🚀 Features
 
@@ -11,11 +15,15 @@ An intelligent document assistant that allows users to query multiple PDFs and o
 - 🧠 Conversational memory
 - 📚 Source attribution with page references
 
+---
+
 ## 🧠 Modes
 
 - **PDF Mode** → Answers strictly from documents  
 - **Internet Mode** → Answers from web search  
 - **Auto Mode** → Combines both intelligently  
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -25,6 +33,28 @@ An intelligent document assistant that allows users to query multiple PDFs and o
 - SentenceTransformers (CrossEncoder reranking)
 - Chainlit (UI)
 
+---
+
+## 🧠 How it Works
+
+User Query  
+→ Intent Classification  
+→ Source Routing (PDF / Internet / Auto)  
+→ Retrieval (FAISS)  
+→ Reranking (CrossEncoder)  
+→ LLM Response Generation  
+
+---
+
+## 💬 Example Queries
+
+- "Summarize the document"
+- "List all risks mentioned"
+- "What is the revenue growth?"
+- "Explain LLMs" (Internet mode)
+
+---
+
 ## ▶️ Run Locally
 
 ```bash
@@ -32,17 +62,39 @@ git clone https://github.com/your-username/chatpdf-rag.git
 cd chatpdf-rag
 pip install -r requirements.txt
 chainlit run app.py
+```
 
-## 📸 Demo
+---
+
+## 🎥 Demo Video
+
+> ⚡ Demonstrates multi-PDF querying, mode switching, and hybrid (PDF + Internet) answers.
+
+### 🎬 Quick Demo (Recommended)
+[Watch Quick Demo](https://github.com/Korunil/chatpdf-rag/blob/main/assets/demo-quick.mp4)
+
+> Includes annotations and shortened response times for clarity.
+
+---
+
+### 🧪 Full Demo (Raw Performance)
+[Watch Full Demo](https://github.com/Korunil/chatpdf-rag/blob/main/assets/demo-full.mp4)
+
+> Shows actual system behavior and real response latency.
+
+
+## 📸 Demo (UI Walkthrough)
 
 ### Upload PDFs
-![Upload](assets/ui.png)
+![Upload](assets/ui.jpeg)
 
 ### Mode Selection
-![Modes](assets/modes.png)
+![Modes](assets/modes.jpeg)
 
 ### Answer with Sources
-![Answer](assets/answer.png)
+![Answer](assets/answer.jpeg)
+
+---
 
 ## ⚙️ Notes & Limitations
 
@@ -52,3 +104,11 @@ chainlit run app.py
 - Demo video has shortened response times for brevity
 
 💡 These constraints are implementation choices and can be scaled with better infrastructure.
+
+---
+
+## 💡 Future Improvements
+- Confidence scoring for answers
+- Better UI (sidebar mode selector / richer controls)
+- Improved source highlighting
+- Deployment (Docker / Hugging Face Spaces)
