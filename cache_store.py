@@ -1,0 +1,3 @@
+_MODEL_CACHE = {}
+_EMBED_CACHE = {}
+_RERANKER_CACHE = None
