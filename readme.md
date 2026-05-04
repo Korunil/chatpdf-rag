@@ -105,7 +105,7 @@ Users can customize system behavior via the Chainlit settings panel, enabling co
 | **AI Model**      | mistral, mistral2, llama                   | mistral  | Choose the LLM backend for answer generation. |
 | **Quantization**  | True / False                               | True     | Enable or disable model quantization to reduce memory usage. |
 | **Embedding**     | Fast, Balanced, Better, Strong             | Balanced | Controls the embedding model used for PDF retrieval. |
-| **Reranker**      | BAAI/bge-reranker-base (default)           | n/a      | Cross-encoder used for reranking retrieved results. |
+| **Reranker**      | BAAI/bge-reranker-base (default)           | BAAI/bge-reranker-base | Cross-encoder used for reranking retrieved results (not user-configurable). |
 
 #### Embedding Options Mapping
 - **Fast:** `sentence-transformers/all-MiniLM-L6-v2`  
@@ -117,6 +117,13 @@ Users can customize system behavior via the Chainlit settings panel, enabling co
 - `mistral`: `mistralai/Mistral-7B-Instruct-v0.2`  
 - `mistral2`: `mistralai/Mistral-7B-Instruct-v0.3`  
 - `llama`: `meta-llama/Meta-Llama-3-8B-Instruct`  
+
+#### Reranking Strategy
+The reranking layer is system-controlled (configured in `config.py`, not exposed via UI):
+
+- **Primary model:** `BAAI/bge-reranker-base`  
+- **Fallback model:** `cross-encoder/ms-marco-MiniLM-L-6-v2`  
+- **Execution device:** CPU (`DEVICE_RERANKER = "cpu"`)
 
 ---
 
