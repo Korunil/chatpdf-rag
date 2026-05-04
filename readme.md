@@ -186,11 +186,11 @@ chainlit run app.py
 ### Upload PDFs
 ![Upload](assets/ui.png)
 
-### Mode Selection
-![Modes](assets/modes.png)
-
 ### Settings Panel
 ![Settings](assets/settings.png)
+
+### Mode Selection
+![Modes](assets/modes.png)
 
 ### Answer with Sources
 ![Answer](assets/answer.png)
