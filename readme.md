@@ -75,7 +75,7 @@ Final Response + Sources
 
 - 📄 Multi-PDF ingestion
 - 🔍 FAISS-based semantic retrieval
-- 🧠 CrossEncoder reranking (MS MARCO)
+- 🧠 CrossEncoder reranking (BAAI/bge-reranker-base)
 - 🌐 Internet fallback (DuckDuckGo)
 - 🤖 Intelligent source routing (PDF / Web / Hybrid)
 - 🧾 Inline citations with page references
@@ -91,6 +91,32 @@ Final Response + Sources
 | 📄 PDF | Answers strictly from documents |
 | 🌐 Internet | Uses web search only |
 | 🤖 Auto | Dynamically selects best source |
+
+---
+
+### ⚙️ User Settings (Chainlit Panel)
+
+Users can customize system behavior via the Chainlit settings panel, enabling control over model selection, embedding quality, and performance optimizations.
+
+#### Settings Overview
+
+| Setting           | Options                                     | Default  | Description |
+|------------------|--------------------------------------------|----------|-------------|
+| **AI Model**      | mistral, mistral2, llama                   | mistral  | Choose the LLM backend for answer generation. |
+| **Quantization**  | True / False                               | True     | Enable or disable model quantization to reduce memory usage. |
+| **Embedding**     | Fast, Balanced, Better, Strong             | Balanced | Controls the embedding model used for PDF retrieval. |
+| **Reranker**      | BAAI/bge-reranker-base (default)           | n/a      | Cross-encoder used for reranking retrieved results. |
+
+#### Embedding Options Mapping
+- **Fast:** `sentence-transformers/all-MiniLM-L6-v2`  
+- **Balanced:** `BAAI/bge-base-en-v1.5`  
+- **Better:** `BAAI/bge-large-en-v1.5`  
+- **Strong:** `intfloat/e5-large-v2`  
+
+#### LLM Model Mapping
+- `mistral`: `mistralai/Mistral-7B-Instruct-v0.2`  
+- `mistral2`: `mistralai/Mistral-7B-Instruct-v0.3`  
+- `llama`: `meta-llama/Meta-Llama-3-8B-Instruct`  
 
 ---
 
@@ -128,7 +154,7 @@ Instead of naive fallback, v2 uses **structured fusion**:
 - **LLM**: Mistral-7B-Instruct
 - **Framework**: LangChain
 - **Retrieval**: FAISS
-- **Reranking**: SentenceTransformers (CrossEncoder)
+- **Reranking**: BAAI/bge-reranker-base (via SentenceTransformers CrossEncoder)
 - **Search**: DuckDuckGo (ddgs)
 - **UI**: Chainlit
 
@@ -162,6 +188,9 @@ chainlit run app.py
 
 ### Mode Selection
 ![Modes](assets/modes.png)
+
+### Settings Panel
+![Settings](assets/settings.png)
 
 ### Answer with Sources
 ![Answer](assets/answer.png)
