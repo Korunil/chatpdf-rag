@@ -60,7 +60,7 @@ chatpdf-rag/
 ├── rag/          # Embeddings & retrieval
 ├── tools/        # Web search & utilities
 ├── assets/       # UI images & demos
-├── public/       # Icon and its images
+├── public/       # Icons and static images
 │
 └── README.md
 ```
