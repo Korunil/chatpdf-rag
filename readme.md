@@ -45,6 +45,24 @@ This makes it easier to:
 - debug individual stages
 - extend the pipeline
 
+chatpdf-rag/
+│
+├── app.py
+├── config.py
+├── cache_store.py
+├── preload_models.py
+│
+├── llm/          # LLM loading & generation
+├── memory/       # Conversational memory
+├── pipeline/     # Routing & orchestration
+├── prompt/       # Prompt templates
+├── rag/          # Embeddings & retrieval
+├── tools/        # Web search & utilities
+├── assets/       # UI images & demos
+├── public/       # Icon and its images
+│
+└── README.md
+
 ---
 
 ## 🧠 RAG Pipeline (v2)
