@@ -45,6 +45,7 @@ This makes it easier to:
 - debug individual stages
 - extend the pipeline
 
+```bash
 chatpdf-rag/
 │
 ├── app.py
@@ -62,7 +63,7 @@ chatpdf-rag/
 ├── public/       # Icon and its images
 │
 └── README.md
-
+```
 ---
 
 ## 🧠 RAG Pipeline (v2)
